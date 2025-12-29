@@ -1,0 +1,74 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+use yii\base\Model;
+
+/**
+ * TokenIssueModel is the model behind the login form.
+ *
+ * @property-read User|null $user
+ *
+ */
+class TokenIssueModel extends Model
+{
+    public $username;
+    public $password;
+
+    private $_user = false;
+
+
+    /**
+     * @return array the validation rules.
+     */
+    public function rules()
+    {
+        return [
+            // username and password are both required
+            [['username', 'password'], 'required'],
+            // password is validated by validatePassword()
+            ['password', 'validatePassword'],
+        ];
+    }
+
+    /**
+     * Validates the password.
+     * This method serves as the inline validation for password.
+     *
+     * @param string $attribute the attribute currently being validated
+     * @param array $params the additional name-value pairs given in the rule
+     */
+    public function validatePassword($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+
+            if (!$user || !Yii::$app->authService->validatePassword($this->password, $user->password_hash)) {
+                $this->addError($attribute, 'Incorrect username or password.');
+            }
+        }
+    }
+
+
+
+
+    public function issueToken()
+    {
+        return Yii::$app->authService->createAccessToken($this->getUser());
+    }
+
+    /**
+     * Finds user by [[username]]
+     *
+     * @return User|null
+     */
+    public function getUser()
+    {
+        if ($this->_user === false) {
+            $this->_user = User::findByUsername($this->username);
+        }
+
+        return $this->_user;
+    }
+}
