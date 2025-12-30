@@ -12,7 +12,7 @@ class AuthController extends BaseController
     public function actionToken()
     {
         $model = new \app\models\TokenIssueModel();
-        $model->load(Yii::$app->request->post(), '');
+        $model->load(Yii::$app->request->getBodyParams(), '');
         if ($model->validate()) {
             $token = $model->issueToken();
             return ['token' => $token->__toString(), 'expire' => $token->getExpire()];
@@ -24,7 +24,7 @@ class AuthController extends BaseController
     public function actionRegister()
     {
         $model = new \app\models\RegistrationModel();
-        $model->load(Yii::$app->request->post(), '');
+        $model->load(Yii::$app->request->getBodyParams(), '');
         if ($model->validate()) {
             $user = $model->register();
             return ['user_id' => $user->id];
