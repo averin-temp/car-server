@@ -1,25 +1,15 @@
 <?php
 namespace app\controllers;
 
+use app\models\Achievement;
 use yii\helpers\ArrayHelper;
-use yii\web\Controller;
+use app\components\BaseController;
 use yii\web\Response;
 
-class AchievementsController extends Controller
+class AchievementsController extends BaseController
 {
-    public function behaviors()
+    public function actionList()
     {
-        return ArrayHelper::merge(
-            parent::behaviors(),
-            [['class' => 'app\components\JsonResponseBehavior']]
-        );
-    }
-
-
-    public function actionIndex($user_id)
-    {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        // логика получения достижений
-        return ['achievements' => []];
+        return Achievement::find()->asArray()->all();
     }
 }

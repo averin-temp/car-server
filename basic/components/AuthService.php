@@ -18,6 +18,8 @@ class AuthService extends \yii\base\Component
     public $jwtAlg = 'HS256';
     public $minPasswordLength = 8;
 
+    private $user;
+
     /**
      * Создаёт AccessToken (UserToken) для пользователя
      *
@@ -48,5 +50,24 @@ class AuthService extends \yii\base\Component
     public function parseAccessToken(string $token): UserToken
     {
         return new UserToken($token, $this->jwtSecret, $this->jwtAlg);
+    }
+
+
+    /**
+     * @param User $user
+     * @return void
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
+    /**
+     * @return User|NULL
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

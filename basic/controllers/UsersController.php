@@ -4,8 +4,8 @@ namespace app\controllers;
 use Yii;
 use app\components\BaseController;
 use app\models\User;
+use yii\web\BadRequestHttpException;
 use yii\web\ForbiddenHttpException;
-use yii\web\Response;
 
 class UsersController extends BaseController
 {
@@ -14,10 +14,17 @@ class UsersController extends BaseController
         return User::find()->select('id, username')->asArray()->all();
     }
 
-    public function actionCreate()
+    public function actionRegister()
     {
-        // логика создания пользователя
-        throw new ForbiddenHttpException("this action disabled");
+        $model = new \app\models\RegistrationModel();
+        $model->load(Yii::$app->request->getBodyParams(), '');
+        if ($model->validate()) {
+            $user = $model->register();
+            return ['user_id' => $user->id];
+        }
+
+        $errors = $model->getFirstErrors();
+        throw new BadRequestHttpException(reset($errors));
     }
 
     public function actionUpdate($id)
@@ -30,5 +37,11 @@ class UsersController extends BaseController
     {
         // логика удаления пользователя
         throw new ForbiddenHttpException("this action disabled");
+    }
+
+
+    public function publicActions()
+    {
+        return ['register'];
     }
 }

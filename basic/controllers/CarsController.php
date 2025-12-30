@@ -1,6 +1,8 @@
 <?php
 namespace app\controllers;
 
+use app\models\Car;
+use app\models\Location;
 use Yii;
 use yii\web\Response;
 use app\components\BaseController;
@@ -13,20 +15,6 @@ class CarsController extends BaseController
 {
     public function actionList($location)
     {
-        return [];
-    }
-
-    public function actionTake($id)
-    {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        // логика взятия машины
-        return ['status' => 'ok', 'car_id' => $id];
-    }
-
-    public function actionRelease($id)
-    {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        // логика возврата машины
-        return ['status' => 'ok', 'car_id' => $id];
+        return Car::find()->select('id, image, location_id, state, session_id')->where(['location_id' => $location])->asArray()->all();
     }
 }

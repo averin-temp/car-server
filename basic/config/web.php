@@ -12,6 +12,9 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'carSessionManager' => [
+            'class' => 'app\components\CarSessionManager',
+        ],
         'authService' => [
             'class' => 'app\components\AuthService',
             'jwtExpire' => 3600,
@@ -61,7 +64,15 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/auth/token' => 'auth/token',
+                '/users/register' => 'users/register',
                 '/users/list' => 'users/list',
+                '/cars/list' => 'cars/list',
+                '/locations/list' => 'locations/list',
+                '/session/start' => 'session/start',
+                '/session/stop' => 'session/stop',
+                '/achievements/list' => 'achievements/list',
+                '/news/list' => 'news/list',
             ],
         ],
     ],

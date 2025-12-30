@@ -17,6 +17,7 @@ class RegistrationModel extends \yii\base\Model
         return [
             ['username', 'required'],
             ['password', 'required'],
+            ['username', 'unique', 'targetClass' => User::class, 'message' => 'Username уже занят'],
         ];
     }
 

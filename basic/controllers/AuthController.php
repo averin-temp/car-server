@@ -18,23 +18,14 @@ class AuthController extends BaseController
             return ['token' => $token->__toString(), 'expire' => $token->getExpire()];
         }
 
-        throw new BadRequestHttpException($model->getFirstErrors());
+        $errors = $model->getFirstErrors();
+        throw new BadRequestHttpException(reset($errors));
     }
 
-    public function actionRegister()
-    {
-        $model = new \app\models\RegistrationModel();
-        $model->load(Yii::$app->request->getBodyParams(), '');
-        if ($model->validate()) {
-            $user = $model->register();
-            return ['user_id' => $user->id];
-        }
 
-        throw new BadRequestHttpException($model->getFirstErrors());
-    }
 
     public function publicActions()
     {
-        return ['register', 'token'];
+        return ['token'];
     }
 }

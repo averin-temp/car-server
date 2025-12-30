@@ -1,15 +1,13 @@
 <?php
 namespace app\controllers;
 
-use yii\web\Controller;
-use yii\web\Response;
+use app\models\NewsArticle;
+use app\components\BaseController;
 
-class NewsController extends Controller
+class NewsController extends BaseController
 {
-    public function actionList($user_id)
+    public function actionList()
     {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        // логика получения новостей
-        return ['news' => []];
+        return NewsArticle::find()->asArray()->all();
     }
 }

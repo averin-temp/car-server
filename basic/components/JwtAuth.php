@@ -24,7 +24,10 @@ class JwtAuth extends AuthMethod
             throw new UnauthorizedHttpException('Token expired');
         }
 
-        return User::findIdentity($token->getUid());
+        $user = User::findIdentity($token->getUid());
+        Yii::$app->authService->setUser($user);
+
+        return $user;
     }
 
     public function getTokenFromHeader($request)

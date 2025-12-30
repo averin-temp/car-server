@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "format": "httpie",
+    "version": "1.0.0",
+    "contentType": "workspace",
+    "schema": "https://schema.httpie.io/1.0.0.json",
+    "docs": "https://httpie.io/r/help/export-from-httpie",
+    "source": "HTTPie Desktop 2025.2.0"
+  },
+  "entry": {
+    "name": "Incognito space",
+    "icon": {
+      "name": "default",
+      "color": "gray"
+    },
+    "collections": [
+      {
+        "name": "carserver",
+        "icon": {
+          "name": "circle",
+          "color": "blue"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "carserver/auth/register",
+            "url": "http://carserver.bitwave.studio/auth/register",
+            "method": "POST",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json",
+                "enabled": true
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"username\": \"bobby\",\n  \"password\": \"123\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": [
+                  {
+                    "name": "username",
+                    "value": "bob",
+                    "enabled": true,
+                    "type": "text"
+                  },
+                  {
+                    "name": "password",
+                    "value": "123",
+                    "enabled": true,
+                    "type": "text"
+                  }
+                ]
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "carserver/auth/token",
+            "url": "http://carserver.bitwave.studio/auth/token",
+            "method": "POST",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json",
+                "enabled": true
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"username\": \"bob\",\n  \"password\": \"123\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": [
+                  {
+                    "name": "username",
+                    "value": "bob",
+                    "enabled": true,
+                    "type": "text"
+                  },
+                  {
+                    "name": "password",
+                    "value": "123",
+                    "enabled": true,
+                    "type": "text"
+                  }
+                ]
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "carserver/cars/list",
+            "url": "http://carserver.bitwave.studio/cars/list",
+            "method": "GET",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json",
+                "enabled": true
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "queryParams": [
+              {
+                "name": "location",
+                "value": "1",
+                "enabled": true
+              }
+            ],
+            "pathParams": [],
+            "auth": {
+              "type": "bearer",
+              "credentials": {
+                "username": "",
+                "password": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIsImV4cCI6MTc2NzA4OTE5NX0.APmsjKOwM1v5Dd9AkpAcGTv7sXf1UmS5j-GB3pxXjj8"
+              },
+              "target": "headers"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": [
+                  {
+                    "name": "username",
+                    "value": "bob",
+                    "enabled": true,
+                    "type": "text"
+                  },
+                  {
+                    "name": "password",
+                    "value": "123",
+                    "enabled": true,
+                    "type": "text"
+                  }
+                ]
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "environments": [
+      {
+        "name": "Defaults",
+        "color": "gray",
+        "isDefault": true,
+        "isLocalOnly": false,
+        "variables": []
+      }
+    ],
+    "drafts": []
+  }
+}

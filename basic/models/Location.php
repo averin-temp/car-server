@@ -17,4 +17,9 @@ class Location extends \yii\db\ActiveRecord
             [['image'], 'string'],
         ];
     }
+
+    public function getCars()
+    {
+        return $this->hasMany(Car::class, ['location_id' => 'id']);
+    }
 }
