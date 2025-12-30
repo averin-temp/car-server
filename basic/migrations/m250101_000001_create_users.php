@@ -9,7 +9,7 @@ class m250101_000001_create_users extends Migration
     {
         $this->createTable('{{%users}}', [
             'id' => $this->primaryKey(),
-            'login' => $this->string()->notNull()->unique(),
+            'username' => $this->string()->notNull()->unique(),
             'password' => $this->string()->notNull(),
             'level' => $this->integer()->defaultValue(1),
             'is_active' => $this->boolean()->defaultValue(false),

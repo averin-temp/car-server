@@ -1,0 +1,82 @@
+-- users
+INSERT INTO users (id, username, password_hash, level, is_active) VALUES
+                                                                      (1, 'alice', 'hash1', 3, 1),
+                                                                      (2, 'bob',   'hash2', 2, 1),
+                                                                      (3, 'carol', 'hash3', 1, 1),
+                                                                      (4, 'dave',  'hash4', 5, 1),
+                                                                      (5, 'erin',  'hash5', 4, 0);
+
+-- wallets
+INSERT INTO wallets (id, user_id, sum) VALUES
+                                           (1, 1, 100.00),
+                                           (2, 2, 50.00),
+                                           (3, 3, 0.00),
+                                           (4, 4, 250.00),
+                                           (5, 5, 10.00);
+
+-- currencies
+INSERT INTO currencies (id, name, short_name, k) VALUES
+                                                     (1, 'Dollar', 'USD', 1.0000),
+                                                     (2, 'Euro',   'EUR', 0.9200),
+                                                     (3, 'Ruble',  'RUB', 90.0000);
+
+-- achievements
+INSERT INTO achievements (id, name, icon) VALUES
+                                              (1, 'First Login', 'login.png'),
+                                              (2, 'First Order', 'order.png'),
+                                              (3, 'Big Spender', 'money.png'),
+                                              (4, 'Level 5',     'level5.png'),
+                                              (5, 'Collector',  'collect.png');
+
+-- achievement_rules
+INSERT INTO achievement_rules (achievement_id, type) VALUES
+                                                         (1, 1),
+                                                         (2, 2),
+                                                         (3, 3),
+                                                         (4, 4),
+                                                         (5, 5);
+
+-- user_achievements
+INSERT INTO user_achievements (user_id, achievement_id) VALUES
+                                                            (1, 1),
+                                                            (1, 2),
+                                                            (2, 1),
+                                                            (4, 4),
+                                                            (4, 3);
+
+-- car
+INSERT INTO car (id, image) VALUES
+                                (1, 'car_1.png'),
+                                (2, 'car_2.png'),
+                                (3, 'car_3.png');
+
+-- locations
+INSERT INTO locations (id, name, image) VALUES
+                                            (1, 'Garage', 'garage.png'),
+                                            (2, 'City',   'city.png'),
+                                            (3, 'Track',  'track.png');
+
+-- location_car
+INSERT INTO location_car (location_id, car_id) VALUES
+                                                   (1, 1),
+                                                   (1, 2),
+                                                   (2, 2),
+                                                   (3, 3);
+
+-- orders
+INSERT INTO orders (user_id, currency_id, method_id, sum, payed, created_at) VALUES
+                                                                                 (1, 1, 1, 19.99, 1, UNIX_TIMESTAMP()),
+                                                                                 (2, 2, 1, 5.00,  1, UNIX_TIMESTAMP()),
+                                                                                 (3, 3, 2, 199.00,0, UNIX_TIMESTAMP()),
+                                                                                 (4, 1, 1, 49.99, 1, UNIX_TIMESTAMP());
+
+-- wallet_transactions
+INSERT INTO wallet_transactions (wallet_id, sum, type, created_at) VALUES
+                                                                       (1, 100.00, 1, UNIX_TIMESTAMP()),
+                                                                       (1, -19.99, 2, UNIX_TIMESTAMP()),
+                                                                       (2, 50.00,  1, UNIX_TIMESTAMP()),
+                                                                       (4, -49.99, 2, UNIX_TIMESTAMP());
+
+-- migration (пример)
+INSERT INTO migration (version, apply_time) VALUES
+    ('m240101_000001_init', UNIX_TIMESTAMP());
