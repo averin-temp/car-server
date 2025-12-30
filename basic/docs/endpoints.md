@@ -42,6 +42,17 @@
 
 ---
 
+**CURL**
+```cmd
+curl -X POST "http://localhost/auth/token" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "username": "PLACEHOLDER",
+        "password": "PLACEHOLDER"
+      }'
+
+```
+
 ## Достижения
 
 ### GET /achievements/list
@@ -69,6 +80,12 @@
 - `icon` — имя файла иконки (TODO: путь и CDN)
 
 ---
+
+
+**CURL**
+```cmd
+curl -X GET "http://localhost/achievements/list" -H "Authorization: Bearer PLACEHOLDER"
+```
 
 ## Новости
 
@@ -98,6 +115,11 @@
 
 ---
 
+**CURL**
+```cmd
+curl -X GET "http://localhost/news/list" -H "Authorization: Bearer PLACEHOLDER" 
+```
+
 ## Локации
 
 ### GET /location/list
@@ -125,6 +147,13 @@
 - `image` — путь к изображению (TODO: абсолютный или относительный URL)
 
 ---
+
+
+**CURL**
+```cmd
+curl -X GET "http://localhost/location/list" -H "Authorization: Bearer PLACEHOLDER"
+```
+
 
 ## Сессии
 
@@ -161,6 +190,20 @@
 
 ---
 
+
+**CURL**
+```cmd
+curl -X POST "http://localhost/session/start" \
+  -H "Authorization: Bearer PLACEHOLDER" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "car_id": PLACEHOLDER
+      }'
+
+```
+
+
+
 ### POST /session/stop
 
 Остановка игровой сессии.
@@ -185,6 +228,19 @@
 ```
 
 ---
+
+
+**CURL**
+```cmd
+curl -X POST "http://localhost/session/stop" \
+  -H "Authorization: Bearer PLACEHOLDER" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "session_id": PLACEHOLDER
+      }'
+
+```
+
 
 ## Машины
 
@@ -220,6 +276,11 @@
 
 ---
 
+**CURL**
+```cmd
+curl -X GET "http://localhost/cars/list?location=PLACEHOLDER" -H "Authorization: Bearer PLACEHOLDER"
+```
+
 ## Пользователи
 
 ### GET /users/list
@@ -244,6 +305,12 @@
 ```
 
 ---
+
+**CURL**
+```cmd
+curl -X GET "http://localhost/users/list" -H "Authorization: Bearer PLACEHOLDER"
+```
+
 
 ### POST /users/register
 
@@ -272,3 +339,14 @@
 - TODO: проверки уникальности username
 
 ---
+
+**CURL**
+```cmd
+curl -X POST "http://localhost/users/register" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "username": "PLACEHOLDER",
+        "password": "PLACEHOLDER"
+      }'
+
+```
