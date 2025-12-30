@@ -1,0 +1,12 @@
+INSERT INTO `locations` VALUES (1,'Garage','/images/3b76e022f33f9f0f2a5ad1fe13701758.jpg'),(2,'City','/images/665x584_0xac120005_10400165001529038475.jpg'),(3,'Track','/images/1639096786_68-sportishka-com-p-gonochnaya-trassa-sport-krasivo-foto-69.jpg');
+INSERT INTO `users` VALUES (1,'alice','$2y$13$mm5aMngyh5wl89CZRtEp6OIttao8ccadkzKuIh41oqnl1nM.QDEoK',3,1,'2025-12-30 01:14:24'),(2,'bob','$2y$13$mm5aMngyh5wl89CZRtEp6OIttao8ccadkzKuIh41oqnl1nM.QDEoK',2,1,'2025-12-30 01:14:24'),(3,'carol','$2y$13$mm5aMngyh5wl89CZRtEp6OIttao8ccadkzKuIh41oqnl1nM.QDEoK',1,1,'2025-12-30 01:14:24'),(4,'dave','$2y$13$mm5aMngyh5wl89CZRtEp6OIttao8ccadkzKuIh41oqnl1nM.QDEoK',5,1,'2025-12-30 01:14:24'),(5,'erin','$2y$13$mm5aMngyh5wl89CZRtEp6OIttao8ccadkzKuIh41oqnl1nM.QDEoK',4,0,'2025-12-30 01:14:24'),(99,'test','$2y$13$mm5aMngyh5wl89CZRtEp6OIttao8ccadkzKuIh41oqnl1nM.QDEoK',1,0,'2025-12-30 00:08:36'),(100,'bobby','$2y$13$dkAvewSQFCbRCyCxwqNonuWxATwE31ES88xcysCP4tZocs1I0pz6K',1,0,'2025-12-30 19:40:04'),(101,'bobby3','$2y$13$PecKEJtx4W1YqbdtUq3xLevNJ/APvGa/ti4jX7BlvWuETFqNTn5sy',1,0,'2025-12-31 00:55:07');
+INSERT INTO `achievements` VALUES (1,'First Login','login.png'),(2,'First Order','order.png'),(3,'Big Spender','money.png'),(4,'Level 5','level5.png'),(5,'Collector','collect.png');
+INSERT INTO `achievement_rules` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5);
+INSERT INTO `car` VALUES (1,'/images/car001.jpg',1,0,NULL),(2,'/images/car002.jpg',1,0,NULL),(3,'/images/car003.jpg',3,0,NULL);
+INSERT INTO `car_session` VALUES (1,1,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,100),(2,1,'0000-00-00 00:00:00','0000-00-00 00:00:00',NULL,100);
+INSERT INTO `currencies` VALUES (1,'Dollar','USD',1.0000),(2,'Euro','EUR',0.9200),(3,'Ruble','RUB',90.0000);
+INSERT INTO `news` VALUES (1,'asdasd','dsfsdfsdfsd');
+INSERT INTO `orders` VALUES (1,1,1,1,19.99,1,1767039264),(2,2,2,1,5.00,1,1767039264),(3,3,3,2,199.00,0,1767039264),(4,4,1,1,49.99,1,1767039264);
+INSERT INTO `user_achievements` VALUES (1,1,1),(2,1,2),(3,2,1),(4,4,4),(5,4,3);
+INSERT INTO `wallets` VALUES (1,1,100.00),(2,2,50.00),(3,3,0.00),(4,4,250.00),(5,5,10.00);
+INSERT INTO `wallet_transactions` VALUES (1,1,100.00,1,1767039264),(2,1,-19.99,2,1767039264),(3,2,50.00,1,1767039264),(4,4,-49.99,2,1767039264);
