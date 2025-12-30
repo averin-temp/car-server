@@ -5,19 +5,19 @@ class m250101_000003_create_wallet_transactions extends Migration
 {
     public function safeUp()
     {
-        $this->createTable('{{%wallet_transactions}}', [
+        $this->createTable('wallet_transactions', [
             'id' => $this->primaryKey(),
             'wallet_id' => $this->integer()->notNull(),
             'sum' => $this->decimal(10,2)->notNull(),
-            'type' => $this->tinyInteger()->notNull(), // 1 income, 2 expense
+            'type' => $this->tinyInteger()->notNull(),
             'created_at' => $this->integer()->notNull(),
         ]);
 
         $this->addForeignKey(
             'fk_wallet_transactions_wallet',
-            '{{%wallet_transactions}}',
+            'wallet_transactions',
             'wallet_id',
-            '{{%wallets}}',
+            'wallets',
             'id',
             'CASCADE'
         );
@@ -25,7 +25,6 @@ class m250101_000003_create_wallet_transactions extends Migration
 
     public function safeDown()
     {
-        $this->dropForeignKey('fk_wallet_transactions_wallet', '{{%wallet_transactions}}');
-        $this->dropTable('{{%wallet_transactions}}');
+        $this->dropTable('wallet_transactions');
     }
 }
